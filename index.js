@@ -74,10 +74,8 @@ app.post("/update/:id", async (req, res) => {
   const updateData = {
     $set: { title: req.body.title, description: req.body.description },
   };
-  // const result = await collection.findOne({_id:new ObjectId(req.params.id)});
   const result = await collection.updateOne(filter, updateData);
   if (result) {
-    // res.render("update",{result});
     res.redirect("/");
   } else {
     res.send("Some Error");
